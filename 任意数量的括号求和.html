@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 任意数量的括号求和
+			function sum(a) {
+			
+			  let currentSum = a;
+			
+			  function f(b) {
+			    currentSum += b;
+				console.log(b)
+			    return f;
+			  }
+			
+			  f.toString = function() {
+			    return currentSum;
+			  };
+			  
+			  
+			
+			  return f;
+			}
+			
+			alert( sum(1)(2) ); // 3
+			
+		</script>
+	</body>
+</html>
