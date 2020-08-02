@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			"use strice"
+			let oobj = {
+				name:"asd",
+				age :"1q2"
+			};
+			let arr1 = [
+				{
+					title:"222",
+					age:"22"
+				}
+			]
+			// for (let item of oobj) {
+			// 	console.log(item)//报错
+			// } 对象没有迭代特性，数组拥有迭代特性,但是我们可以通过object来转换
+			/*
+				Object.keys，values，entries
+				对于普通对象，下列这些方法是可用的：
+				
+				Object.keys(obj) —— 返回一个包含该对象所有的键的数组。
+				Object.values(obj) —— 返回一个包含该对象所有的值的数组。
+				Object.entries(obj) —— 返回一个包含该对象所有 [key, value] 键值对的数组。
+			*/
+			for (let [key,value] of Object.entries(oobj)) {
+				console.log(key,value)
+			}
+			
+			
+		</script>
+	</body>
+</html>

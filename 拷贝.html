@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// let hd = {
+			// 	name:"jsion",
+			// 	age:"2123",
+			// 	}
+			// let ad = {
+			// }
+			// let obj = Object.assign({},hd);
+			// console.log(obj)
+			// obj.title = "dnmsuad";
+			// console.log(obj,hd)
+			
+			// for (let key in hd) {
+			// 	ad[key] = hd[key]
+			// }
+			// console.log(ad)
+			const obj = {
+				arr:[],
+				name:"名字",
+				objchind:{
+					name:"jis",
+					title:{
+						a:"第二层"
+					}
+				}
+			}
+			function copy(object){
+				let res = object instanceof Array ?[]:{};
+				for(const key in object){
+					res[key] = typeof object[key] === 'object' ? copy(object[key]) :object[key];
+				}
+				return res;
+			}
+			// let obj2 = copy(obj)
+			// obj2.objchind.name = "修改属性";
+			// obj2.arr.push("数组1")
+			// console.log(JSON.stringify(obj2,null,2));
+			// console.log(JSON.stringify(obj,null,2));
+			
+			function copytwo(obj){
+				let res = obj instanceof Array ?[]:{};
+				for (let [k,v] of Object.entries(obj)) {
+					res[k] = typeof v === 'object' ? copytwo(v):v;
+				}
+				return res
+			}
+			let obj2 = copytwo(obj)
+			obj2.objchind.name = "修改属性";
+			obj2.arr.push("数组1")
+			console.log(JSON.stringify(obj2,null,2));
+			console.log(JSON.stringify(obj,null,2));
+		</script>
+	</body>
+</html>
